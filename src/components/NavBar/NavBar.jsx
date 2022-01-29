@@ -1,5 +1,5 @@
 import './NavBar.css';
-import ShoppingCartCheckoutSharpIcon from '@mui/icons-material/ShoppingCartCheckoutSharp';
+import { CartWidget } from '../cartWidget/cartWidget';
 
 export const NavBar = () => {
 
@@ -13,7 +13,7 @@ export const NavBar = () => {
                 <p className="header-link">Arcades</p>
                 <p className="header-link">Remates</p>
                 <p className="header-link">Coleccionables</p>
-                <ShoppingCartCheckoutSharpIcon className="shopping-cart" fontSize="large"/>
+                <CartWidget/>
             </nav>
         </header>
 
