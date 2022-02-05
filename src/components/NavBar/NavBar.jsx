@@ -1,22 +1,46 @@
 import './NavBar.css';
+import '../assets/Logo/logo.css';
 import { CartWidget } from '../cartWidget/cartWidget';
+import logo from '../assets/Logo/logo.png';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { Container } from '@mui/material';
+import { Button, Link } from '@material-ui/core';
+
+
+
+const LinkButton = (props) => <Button component={Link} {...props} />;
 
 export const NavBar = () => {
 
-    return (
+  return (
 
-        <header className="header">
-            <h1>S3PiA</h1>
-            <nav className="header-nav">
-                <p className="header-link">Consolas</p>
-                <p className="header-link">Cartuchos</p>
-                <p className="header-link">Arcades</p>
-                <p className="header-link">Remates</p>
-                <p className="header-link">Coleccionables</p>
-                <CartWidget/>
-            </nav>
-        </header>
+    <Container>
+      <AppBar position="fixed">
+        <Toolbar>
+          <header className="header">
+            <img className='logoStyle' src={logo} alt="logo" />
+              <LinkButton to='/'>
+                  Home
+              </LinkButton>
+              <LinkButton to='/Consolas'>
+                  Consolas
+              </LinkButton>
+              <LinkButton to='/Remates'>
+                  Remates
+              </LinkButton>
+              <LinkButton to='/Coleccionables'>
+                  Coleccionables
+              </LinkButton>
+              <LinkButton to='/Miscellaneous'>
+                Miscellaneous
+              </LinkButton>
+            <CartWidget/>
+          </header>
+        </Toolbar>
+      </AppBar>
+    </Container>
 
-    )
-
-}
+  );
+};

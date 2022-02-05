@@ -5,7 +5,7 @@ export const CartWidget = () => {
 
     return (
 
-        <ShoppingCartCheckoutSharpIcon className="shopping-cart" fontSize="large"/> 
+        <ShoppingCartCheckoutSharpIcon className="shopping-cart" fontSize="large"/>
 
     )
 
