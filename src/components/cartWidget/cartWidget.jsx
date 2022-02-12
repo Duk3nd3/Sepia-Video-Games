@@ -1,11 +1,11 @@
-import ShoppingCartCheckoutSharpIcon from '@mui/icons-material/ShoppingCartCheckoutSharp';
+import { BsFillCartCheckFill } from 'react-icons/bs';
 import './cartWidget.css';
 
 export const CartWidget = () => {
 
     return (
 
-        <ShoppingCartCheckoutSharpIcon className="shopping-cart" fontSize="large"/>
+        <BsFillCartCheckFill size="30px" className="shopping-cart" />
 
     )
 

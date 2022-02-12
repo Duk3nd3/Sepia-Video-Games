@@ -1,0 +1,16 @@
+.itemButtom {
+	background: none;
+	color: rgba(102, 59, 42);
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.itemButtom:hover {
+    color: rgb(255, 0, 0);
+    transition: .6s ease all;
+}
+
+.card-img-top {
+
+    padding: 15px;
+
+}

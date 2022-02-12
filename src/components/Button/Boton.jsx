@@ -1,10 +1,11 @@
-import Button from '@material-ui/core/Button';
+import { Button } from "react-bootstrap";
+import './Boton.css';
 
 export const Boton = ( {children, click}) => {
 
     return (
 
-        <Button onClick={click} >
+        <Button className='clickerStyle' variant="outline-dark" onClick={click} >
             {children}
         </Button>
 

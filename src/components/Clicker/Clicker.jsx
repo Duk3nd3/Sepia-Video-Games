@@ -1,11 +1,7 @@
-import { Badge } from '@material-ui/core';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
 import { Boton } from "../Button/Boton";
-import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
-
-
+import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
+import './Clicker.css';
 
 export const Clicker = () => {
 
@@ -13,7 +9,7 @@ export const Clicker = () => {
 
     const incrementar = () => {
 
-        clicks < 15 && setClick(clicks +1, 0);
+        clicks < 10 && setClick(clicks +1, 0);
 
     }
 
@@ -28,16 +24,16 @@ return (
     <>
 
         <Boton click={incrementar}>
-            <AddBoxIcon />
+            <BsCartPlusFill />
         </Boton>
         <Boton click={decrementar}>
-            <RemoveIcon fontSize="small"/>
+            <BsCartDashFill />
         </Boton>
-        <Badge color="secondary" badgeContent={clicks}>
-            <AddShoppingCartSharpIcon />
-        </Badge>
+        <p className='cartStyle'>Agregado al carrito</p>
+        <p className='countStyle'>{clicks}</p>
 
-        <Boton> Fecha: { new Date().toLocaleString() }</Boton>
+        <p className='styleDate'> Fecha: { new Date().toLocaleString() }</p>
+
     </>
 
 )

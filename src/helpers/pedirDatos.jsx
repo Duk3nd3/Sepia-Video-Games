@@ -1,6 +1,6 @@
 import { stock } from "../stock/stock";
 
- export const pedirDatos = () => {
+export const pedirDatos = () => {
 
     return new Promise ( (resolve, reject) => {
 
@@ -8,7 +8,7 @@ import { stock } from "../stock/stock";
 
             resolve(stock);
 
-        }, 3000);
+        }, 1500);
 
     })
- }
+}

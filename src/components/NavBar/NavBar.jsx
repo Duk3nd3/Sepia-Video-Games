@@ -1,46 +1,27 @@
-import './NavBar.css';
-import '../assets/Logo/logo.css';
-import { CartWidget } from '../cartWidget/cartWidget';
 import logo from '../assets/Logo/logo.png';
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import { Container } from '@mui/material';
-import { Button, Link } from '@material-ui/core';
-
-
-
-const LinkButton = (props) => <Button component={Link} {...props} />;
+import { CartWidget } from '../cartWidget/cartWidget';
+import { Link } from 'react-router-dom';
+import './NavBar.scss';
 
 export const NavBar = () => {
 
   return (
 
-    <Container>
-      <AppBar position="fixed">
-        <Toolbar>
-          <header className="header">
-            <img className='logoStyle' src={logo} alt="logo" />
-              <LinkButton to='/'>
-                  Home
-              </LinkButton>
-              <LinkButton to='/Consolas'>
-                  Consolas
-              </LinkButton>
-              <LinkButton to='/Remates'>
-                  Remates
-              </LinkButton>
-              <LinkButton to='/Coleccionables'>
-                  Coleccionables
-              </LinkButton>
-              <LinkButton to='/Miscellaneous'>
-                Miscellaneous
-              </LinkButton>
-            <CartWidget/>
-          </header>
-        </Toolbar>
-      </AppBar>
-    </Container>
+    <header className="header">
+
+      <Link to='/' style={{ color: '#fff' }}>
+        <img src={logo} alt="logo" />
+      </Link>
+
+      <nav className='header-nav'>
+        <Link className='header-link' to='/productos/consolas'>Consolas</Link>
+        <Link className='header-link' to='/productos/cartuchos'>Cartuchos</Link>
+        <Link className='header-link' to='/productos/arcades'>Arcades</Link>
+        <Link className='header-link' to='/productos/contacto'>Contacto</Link>
+      </nav>
+
+      <CartWidget />
+    </header>
 
   );
 };

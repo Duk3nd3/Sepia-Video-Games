@@ -1,12 +1,23 @@
 import { Item } from '../Item/Item';
+import { Contenedor } from '../Contenedor/Contenedor';
 
 export const ItemList = ( {productos} ) => {
 
     return (
 
-        <>
-            { productos.map( (el) => <Item key={el.id} nombre={el.nombre} precio={el.precio} img={el.img} desc={el.desc}/>) }
-        </>
+        <Contenedor>
+
+            <h2 style={{ marginTop: '50px', marginBottom: '50px' }}>Nuestros Productos</h2>
+
+            <hr/>
+
+            <div className="row">
+
+                { productos.map( (elements) => <Item key={elements.id} {...elements}/> )}
+
+            </div>
+
+        </Contenedor>
 
     )
 

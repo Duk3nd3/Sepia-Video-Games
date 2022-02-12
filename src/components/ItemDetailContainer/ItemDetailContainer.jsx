@@ -1,49 +1,33 @@
 import { useEffect, useState } from 'react';
-import { pedirDatos } from '../../helpers/pedirDatos';
-import { ItemList } from '../ItemList/ItemList';
-import PacmanLoader from "react-spinners/PacmanLoader";
 import { useParams } from 'react-router-dom';
+import { PacmanLoader } from 'react-spinners';
+import { pedirDatos } from '../../helpers/pedirDatos';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
 
-export const ItemListContainer = ( ) => {
+export const ItemDetailContainer = () => {
 
-    const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [item, setItem] = useState(null);
 
-    const { categoryId } = useParams();
+    const { itemId } = useParams();
 
     useEffect(() => {
 
         setLoading(true);
 
         pedirDatos()
-            .then( (res) => {
+            .then((res) => {
 
-                if (categoryId){
-
-                    setProductos( res.filter((elements) => elements.categoria === categoryId) );
-
-                } else {
-
-                    setProductos(res);
-
-                }
+                setItem( res.find((elements) => elements.id === Number(itemId)) );
 
             })
-            .catch( (err) => {
-
-                console.log(err);
-
-            })
-            .finally( () => {
+            .finally(() => {
 
                 setLoading(false);
-
-            });
-
-    }, [categoryId])
+            })
+    }, [itemId]);
 
     return (
-
         <>
             {
                 loading
@@ -64,9 +48,8 @@ export const ItemListContainer = ( ) => {
 
                     }}
                     />
-                    : <ItemList productos={productos} />
+                    : <ItemDetail {...item} />
             }
         </>
     )
-
-}
+};
