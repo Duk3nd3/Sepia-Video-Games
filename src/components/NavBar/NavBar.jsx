@@ -14,10 +14,10 @@ export const NavBar = () => {
       </Link>
 
       <nav className='header-nav'>
-        <Link className='header-link' to='/productos/consolas'>Consolas</Link>
-        <Link className='header-link' to='/productos/cartuchos'>Cartuchos</Link>
-        <Link className='header-link' to='/productos/arcades'>Arcades</Link>
-        <Link className='header-link' to='/productos/contacto'>Contacto</Link>
+        <Link to='/productos/consolas' className='header-link'>Consolas</Link>
+        <Link to='/productos/cartuchos' className='header-link'>Cartuchos</Link>
+        <Link to='/productos/arcades' className='header-link'>Arcades</Link>
+        <Link to='/esteEsUnErrorAdrede/' className='header-link'>Contacto</Link>
       </nav>
 
       <CartWidget />

@@ -10,6 +10,7 @@ import { Arcades } from './components/Pages/Arcades';
 import { Contacto } from './components/Pages/Contacto';
 import { Error404 } from './components/Pages/Error404';
 
+
 function App() {
 
     return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/contacto' element={ <Contacto/> }/>
 
                 <Route path='*' element={ <Error404 /> } />
+
             </Routes>
 
             {/* <Footer /> */}
