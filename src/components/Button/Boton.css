@@ -1,19 +1,17 @@
 .clickerStyle {
-
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
-    border: 1px solid #000;
-    box-shadow: 0 0 10px #000;
-    cursor: pointer;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
-    border-radius: 5px;
-    font-size: 1.1em;
-    margin-left: 100px;
-
+	width: 50%;
+	height: 100%;
+	background-color: #fff;
+	border: 1px solid #000;
+	box-shadow: 0 0 10px #000;
+	cursor: pointer;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	border-radius: 5px;
+	font-size: 1.1em;
+	margin-left: 100px;
 }

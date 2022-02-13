@@ -1,41 +1,30 @@
-.header {
+.header-footer {
 	padding: 20px 50px;
 	letter-spacing: 3px;
 	width: 100%;
 	background-color: rgb(102, 59, 42);
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 
 	@media (max-width: 768px) {
 		flex-direction: column;
 	}
 
-	h1 {
+	h3 {
 		font-size: 52px;
 		font-weight: 700;
+		margin: 15px 0;
 	}
 
-	.header-nav {
+	.header-footer-child {
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
-		width: 40%;
+		justify-content: center;
+		width: 100%;
 
 		@media (max-width: 768px) {
 			flex-direction: column;
-		}
-
-		.header-link {
-			padding: 10px 30px;
-			cursor: pointer;
-			color: white;
-			text-decoration: none;
-			display: inline-block;
-
-			&:hover {
-				color: rgb(199, 12, 12);
-			}
 		}
 	}
 }

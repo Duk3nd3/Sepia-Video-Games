@@ -1,31 +1,25 @@
 .cartStyle {
-
-    color: rgb(0, 0, 0);
-    font-size: 15px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
-    text-align: center;
-    width: 100%;
-
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	text-align: center;
+	width: 100%;
 }
 
 .styleDate {
-
-    color: rgb(0, 0, 0);
-    font-size: 10px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
-    text-align: center;
-    width: 100%;
-
+	color: rgb(0, 0, 0);
+	font-size: 10px;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	text-align: center;
+	width: 100%;
 }
 
 .countStyle {
-
-    color: rgb(255, 0, 0);
-    font-size: 20px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
-    text-align: center;
-
+	color: rgb(255, 0, 0);
+	font-size: 20px;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.5em 0.5em 0.5em 0.5em;
+	text-align: center;
 }
