@@ -41,7 +41,18 @@ export const ItemDetailContainer = () => {
 					}}
 				/>
 			) : (
-				<ItemDetail {...item} />
+				<>
+					<h2
+						style={{
+							textAlign: 'center',
+							margin: '50px',
+							marginBottom: '50px',
+						}}
+					>
+						{item?.nombre ? item.nombre.toUpperCase() : 'Detalle del producto'}
+						<ItemDetail {...item} />
+					</h2>
+				</>
 			)}
 		</>
 	);

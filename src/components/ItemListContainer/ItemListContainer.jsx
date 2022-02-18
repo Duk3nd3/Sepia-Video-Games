@@ -50,7 +50,18 @@ export const ItemListContainer = () => {
 					}}
 				/>
 			) : (
-				<ItemList productos={productos} />
+				<>
+					<h2
+						style={{
+							textAlign: 'center',
+							margin: '50px',
+							marginBottom: '50px',
+						}}
+					>
+						{categoryId ? categoryId.toUpperCase() : 'NUESTROS PRODUCTOS'}
+					</h2>
+					<ItemList productos={productos} />
+				</>
 			)}
 		</>
 	);

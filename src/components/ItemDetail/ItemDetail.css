@@ -1,0 +1,9 @@
+.cardDetail {
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	margin-left: 25%;
+}
+span {
+	color: red;
+}

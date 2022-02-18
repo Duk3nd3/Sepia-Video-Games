@@ -5,10 +5,8 @@ export const ItemList = ({ productos }) => {
 	return (
 		<Contenedor>
 			<h2 style={{ marginTop: '50px', marginBottom: '50px' }}>
-				Nuestros Productos
+				<hr />
 			</h2>
-
-			<hr />
 
 			<div className='row'>
 				{productos.map((elements) => (
