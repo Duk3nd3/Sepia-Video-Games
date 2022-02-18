@@ -24,9 +24,6 @@ export const CartProvider =  ({children}) => {
             return cart.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0);
         };
 
-        console.log(JSON.stringify(totalInCartPrice()));
-        console.log(typeof totalInCartPrice());
-
         const cleanCart = () => {
             setCart([]);
         };
@@ -34,6 +31,29 @@ export const CartProvider =  ({children}) => {
         const deleteProduct = (id) => {
             setCart(cart.filter((prod) => prod.id !== id));
         };
+
+        const onAdd = (product) => {
+            const exist = cart.find((prod) => prod.id === product.id);
+            if (exist.cantidad >= 5) {
+                return false
+            } else {
+                setCart(
+                    cart.map((prod) =>
+                        prod.id === product.id ? { ...exist, cantidad: exist.cantidad + 1 } : prod
+                    )
+                );
+            }
+          };
+
+        const onRemove = (product) => {
+            const exist = cart.find((prod) => prod.id === product.id);
+            if (exist.cantidad === 1) {
+              return false
+            } else {
+              setCart(cart.map((prod) => prod.id === product.id ? { ...exist, cantidad: exist.cantidad - 1 } : prod)
+              );
+            }
+          };
 
     return (
 
@@ -45,6 +65,8 @@ export const CartProvider =  ({children}) => {
             totalInCartPrice,
             cleanCart,
             deleteProduct,
+            onAdd,
+            onRemove,
         }}>
             {children}
         </CartContext.Provider>
