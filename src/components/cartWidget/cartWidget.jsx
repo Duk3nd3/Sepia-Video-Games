@@ -8,9 +8,9 @@ export const CartWidget = () => {
 	const { totalInCart } = useContext(CartContext);
 
 	return (
-		<Link to='/cart'>
+		<Link className="text-decoration-none" to='/cart'>
 			<BsFillCartCheckFill size='30px' className='shopping-cart' />
-			<span>{totalInCart()}</span>
+			<span className="m-2 p-1">{totalInCart()}</span>
 		</Link>
 	);
 };
