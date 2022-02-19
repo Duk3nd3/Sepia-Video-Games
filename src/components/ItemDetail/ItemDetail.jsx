@@ -20,7 +20,6 @@ export const ItemDetail = ({
 	const { AddtoCart, inTheShoppingCart } = useContext(CartContext);
 
 	const handleAdd = () => {
-
 		if (cantidad === 0) return;
 
 		if (!inTheShoppingCart(id)) {
@@ -57,25 +56,21 @@ export const ItemDetail = ({
 				</Card.Text>
 			</Card.Body>
 
-			{
-				inTheShoppingCart(id)
-				?
-					<Link to='/cart'>
-						<Boton>Carrito de Compras</Boton>
-					</Link>
-				:
-					<>
-						<ItemCount
-							maxStock={stock}
-							counter={cantidad}
-							setCounter={setCantidad}
-						/>
+			{inTheShoppingCart(id) ? (
+				<Link to='/cart'>
+					<Boton>Ver productos en carrito</Boton>
+				</Link>
+			) : (
+				<>
+					<ItemCount
+						maxStock={stock}
+						counter={cantidad}
+						setCounter={setCantidad}
+					/>
 
-						<Boton click={handleAdd}>
-							Agregar al carrito
-						</Boton>
+					<Boton click={handleAdd}>Agregar al carrito</Boton>
 				</>
-			}
+			)}
 		</Card>
 	);
 };

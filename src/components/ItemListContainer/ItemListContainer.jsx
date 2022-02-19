@@ -1,35 +1,11 @@
-import { useEffect, useState } from 'react';
-import { pedirDatos } from '../../helpers/pedirDatos';
 import { ItemList } from '../ItemList/ItemList';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { useParams } from 'react-router-dom';
+import { Products } from '../Products/Products';
 
 export const ItemListContainer = () => {
-	const [productos, setProductos] = useState([]);
-	const [loading, setLoading] = useState(false);
-
 	const { categoryId } = useParams();
-
-	useEffect(() => {
-		setLoading(true);
-
-		pedirDatos()
-			.then((res) => {
-				if (categoryId) {
-					setProductos(
-						res.filter((elements) => elements.categoria === categoryId)
-					);
-				} else {
-					setProductos(res);
-				}
-			})
-			.catch((err) => {
-				console.log(err);
-			})
-			.finally(() => {
-				setLoading(false);
-			});
-	}, [categoryId]);
+	const { loading, productos } = Products(categoryId);
 
 	return (
 		<>
