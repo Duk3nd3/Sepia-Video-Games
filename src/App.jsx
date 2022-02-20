@@ -7,9 +7,6 @@ import { Footer } from './components/Footer/Footer';
 import './Global.scss';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Consolas } from './components/Pages/Consolas';
-import { Cartuchos } from './components/Pages/Cartuchos';
-import { Arcades } from './components/Pages/Arcades';
 import { Contacto } from './components/Pages/Contacto';
 import { Cart } from './components/Cart/Cart';
 import { Error404 } from './components/Pages/Error404';
@@ -28,9 +25,6 @@ function App() {
 						element={<ItemListContainer />}
 					/>
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
-					<Route path='/consolas' element={<Consolas />} />
-					<Route path='/cartuchos' element={<Cartuchos />} />
-					<Route path='/arcades' element={<Arcades />} />
 					<Route path='/contactos' element={<Contacto />} />
 					<Route path='/cart' element={<Cart />} />
 

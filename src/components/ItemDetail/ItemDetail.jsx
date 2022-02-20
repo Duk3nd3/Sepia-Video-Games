@@ -1,7 +1,6 @@
 import { Card } from 'react-bootstrap';
 import './ItemDetail.css';
 import { ItemCount } from '../ItemCount/ItemCount';
-import { Boton } from '../Button/Boton';
 import { useContext, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
 import { Link } from 'react-router-dom';
@@ -20,8 +19,6 @@ export const ItemDetail = ({
 	const { AddtoCart, inTheShoppingCart } = useContext(CartContext);
 
 	const handleAdd = () => {
-		if (cantidad === 0) return;
-
 		if (!inTheShoppingCart(id)) {
 			const addItem = {
 				id,
@@ -58,7 +55,9 @@ export const ItemDetail = ({
 
 			{inTheShoppingCart(id) ? (
 				<Link to='/cart'>
-					<Boton>Ver productos en carrito</Boton>
+					<button className='border border-success m-2 p-2'>
+						Ver productos en carrito
+					</button>
 				</Link>
 			) : (
 				<>
@@ -68,7 +67,13 @@ export const ItemDetail = ({
 						setCounter={setCantidad}
 					/>
 
-					<Boton click={handleAdd}>Agregar al carrito</Boton>
+					<button
+						className='m-2 p-2'
+						onClick={handleAdd}
+						disabled={cantidad === 0}
+					>
+						Agregar al carrito
+					</button>
 				</>
 			)}
 		</Card>

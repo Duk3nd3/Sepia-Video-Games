@@ -1,4 +1,3 @@
-import { Boton } from '../Button/Boton';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import './ItemCount.css';
 
@@ -13,16 +12,20 @@ export const ItemCount = ({ maxStock, minStock = 0, counter, setCounter }) => {
 
 	return (
 		<>
-			<Boton click={handleIncrementar}>
+			<button className='w-25 m-2 p-2' onClick={handleIncrementar}>
 				<BsCartPlusFill />
-			</Boton>
+			</button>
 
-			<p className='countStyle'>{counter < 5 ? 'En Stock' : 'Sin Stock'}</p>
+			<p className='countStyle'>
+				{counter < 5
+					? 'En Stock'
+					: 'Stock maximo disponible para este producto'}
+			</p>
 			<p className='countStyle'>{counter}</p>
 
-			<Boton click={handleDecrementar}>
+			<button className='w-25 m-2 p-2' onClick={handleDecrementar}>
 				<BsCartDashFill />
-			</Boton>
+			</button>
 
 			<span className='styleDate'> Fecha: {new Date().toLocaleString()}</span>
 		</>
