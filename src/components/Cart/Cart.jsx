@@ -9,17 +9,17 @@ import { Link } from 'react-router-dom';
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
 		useContext(CartContext);
-
+	
 	return (
 		<div className='container my-4'>
 			<h2>Tu Compra</h2>
 			<hr />
 		
-			{!cart.length 
-			? <div className="emptyCart">
-								<div>Carrito Vacio</div>
-								<Link to='/' className={'text-decoration-none'}>Ir a comprar</Link>
-                            </div>
+			{!cart.length
+			? 	<div>
+					<div>Carrito Vacio</div>
+					<Link to='/' className={'text-decoration-none'}>Ir a comprar</Link>
+				</div>
 			:
 				<>
 					{cart.map((item) => (

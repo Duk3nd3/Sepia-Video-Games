@@ -17,7 +17,7 @@ export const ItemDetail = ({
 }) => {
 	const [cantidad, setCantidad] = useState(0);
 
-	const precioFinal = oferta ? precio * 0.8 : precio;
+	const precioConDescuento = oferta ? precio * 0.8 : precio;
 
 	const { AddtoCart, inTheShoppingCart } = useContext(CartContext);
 
@@ -54,7 +54,7 @@ export const ItemDetail = ({
 						</>
 					)}
 				</Card.Text>
-				<Card.Text as='div'>Precio: ${precioFinal}</Card.Text>
+				<Card.Text as='div'>Precio: ${precioConDescuento}</Card.Text>
 				<Card.Text as='div'>
 					<span>Categoria:</span>
 					{categoria}

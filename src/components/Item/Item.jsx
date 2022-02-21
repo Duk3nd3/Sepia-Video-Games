@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Item.css';
 
 export const Item = ({ id, nombre, precio, img, desc, categoria, oferta }) => {
-	const precioFinal = oferta ? precio * 0.8 : precio;
+	const precioConDescuento = oferta ? precio * 0.8 : precio;
 
 	return (
 		<Card style={{ width: '17rem', margin: '12px', padding: '15px' }}>
@@ -21,7 +21,7 @@ export const Item = ({ id, nombre, precio, img, desc, categoria, oferta }) => {
 						</>
 					)}
 				</Card.Text>
-				<Card.Text as='div'>Precio: ${precioFinal}</Card.Text>
+				<Card.Text as='div'>Precio: ${precioConDescuento}</Card.Text>
 				<Link to={`/detalle/${id}`}>
 					<button className='itemButtom'>Ver más</button>
 				</Link>
