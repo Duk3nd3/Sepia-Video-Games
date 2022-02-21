@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { pedirDatos } from '../../helpers/pedirDatos';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { ddbb } from '../../Firebase/Config';
 
 export const Products = (categoryId) => {
 	const [productos, setProductos] = useState([]);
@@ -9,18 +10,21 @@ export const Products = (categoryId) => {
 	useEffect(() => {
 		setLoading(true);
 
-		pedirDatos()
-			.then((res) => {
-				if (categoryId) {
-					setProductos(
-						res.filter((elements) => elements.categoria === categoryId)
-					);
-				} else {
-					setProductos(res);
-				}
-			})
-			.catch((err) => {
-				console.log(err);
+		const stockRef = collection(ddbb, 'stock');
+		const q = categoryId
+			? query(stockRef, where('categoria', '==', categoryId))
+			: stockRef;
+
+		getDocs(q)
+			.then((respuesta) => {
+				setProductos(
+					respuesta.docs.map((doc) => {
+						return {
+							id: doc.id,
+							...doc.data(),
+						};
+					})
+				);
 			})
 			.finally(() => {
 				setLoading(false);

@@ -1,7 +1,8 @@
+import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PacmanLoader } from 'react-spinners';
-import { pedirDatos } from '../../helpers/pedirDatos';
+import { ddbb } from '../../Firebase/Config';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 
 export const ItemDetailContainer = () => {
@@ -13,9 +14,13 @@ export const ItemDetailContainer = () => {
 	useEffect(() => {
 		setLoading(true);
 
-		pedirDatos()
-			.then((res) => {
-				setItem(res.find((elements) => elements.id === Number(itemId)));
+		const docRef = doc(ddbb, 'stock', itemId);
+		getDoc(docRef)
+			.then((doc) => {
+				setItem({
+					id: doc.id,
+					...doc.data(),
+				});
 			})
 			.finally(() => {
 				setLoading(false);
