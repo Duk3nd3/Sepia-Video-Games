@@ -1,10 +1,11 @@
+import './Global.scss';
+
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
 
-import './Global.scss';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Contacto } from './components/Pages/Contacto';

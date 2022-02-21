@@ -2,3 +2,15 @@
 	cursor: pointer;
 	color: #fff;
 }
+
+.navCart {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+  }
+
+  .navCartShow {
+	visibility: visible;
+	opacity: 1;
+  }  

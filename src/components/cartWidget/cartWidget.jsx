@@ -5,10 +5,10 @@ import { CartContext } from '../Context/CartContext';
 import './cartWidget.css';
 
 export const CartWidget = () => {
-	const { totalInCart } = useContext(CartContext);
+	const {cart, totalInCart } = useContext(CartContext);
 
 	return (
-		<Link className='text-decoration-none' to='/cart'>
+		<Link to='/cart' className={cart.length > 0 ? 'navCartShow text-decoration-none' : 'navCart'}>
 			<BsFillCartCheckFill size='30px' className='shopping-cart' />
 			<span className='m-2 p-1'>{totalInCart()}</span>
 		</Link>

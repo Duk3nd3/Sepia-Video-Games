@@ -16,12 +16,12 @@ export const ItemCount = ({ maxStock, minStock = 0, counter, setCounter }) => {
 				<BsCartPlusFill />
 			</button>
 
-			<p className='countStyle'>
+			<div className='countStyle'>
 				{counter < 5
 					? 'En Stock'
 					: 'Stock maximo disponible para este producto'}
-			</p>
-			<p className='countStyle'>{counter}</p>
+			</div>
+			<div className='countStyle'>{counter}</div>
 
 			<button className='w-25 m-2 p-2' onClick={handleDecrementar}>
 				<BsCartDashFill />

@@ -4,6 +4,7 @@ import { CartContext } from '../Context/CartContext';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
@@ -11,45 +12,52 @@ export const Cart = () => {
 
 	return (
 		<div className='container my-4'>
-			<h2>Tus Compras</h2>
+			<h2>Tu Compra</h2>
 			<hr />
-
-			<div>{cart.length === 0 && <div>Carrito Vacio</div>}</div>
-
-			{cart.map((item) => (
-				<div key={item.id} className='row m-4'>
-					<div className='col-md-4'>{item.nombre}</div>
-					<div className='col-md-2'>
-						<p className='text-danger'>Precio Unitario</p>${item.precio}
-					</div>
-					<div className='col-md-2'>
-						<p className='text-danger'>
-							{item.cantidad === 5 ? 'Maximo Stock' : 'Cantidad: '}
-						</p>
-						{item.cantidad}
-					</div>
-					<div className='col-md-2'>
-						<p className='text-danger'>Precio Total</p>$
-						{item.cantidad * item.precio}
-					</div>
-					<div className='col-md-1'>
-						<button className='w-50 p-1 m-1' onClick={() => onAdd(item)}>
-							<BsCartPlusFill />
-						</button>
-						<button className='w-50 p-1 m-1' onClick={() => onRemove(item)}>
-							<BsCartDashFill />
-						</button>
-					</div>
-					<div className='col-md-1'>
-						<button className='mt-3 p-2' onClick={() => deleteProduct(item.id)}>
-							<MdRemoveShoppingCart
-								style={{ color: 'red', fontSize: '20px' }}
-							/>
-						</button>
-					</div>
-				</div>
-			))}
-
+		
+			{!cart.length 
+			? <div className="emptyCart">
+								<div>Carrito Vacio</div>
+								<Link to='/' className={'text-decoration-none'}>Ir a comprar</Link>
+                            </div>
+			:
+				<>
+					{cart.map((item) => (
+						<div key={item.id} className='row m-4'>
+							<div className='col-md-4'>{item.nombre}</div>
+							<div className='col-md-2'>
+								<div className='text-danger'>Precio Unitario</div>${item.precio}
+							</div>
+							<div className='col-md-2'>
+								<div className='text-danger'>
+									{item.cantidad === 5 ? 'Maximo Stock' : 'Cantidad: '}
+								</div>
+								{item.cantidad}
+							</div>
+							<div className='col-md-2'>
+								<div className='text-danger'>Precio Total</div>$
+								{item.cantidad * item.precio}
+							</div>
+							<div className='col-md-1'>
+								<button className='w-50 p-1 m-1' onClick={() => onAdd(item)}>
+									<BsCartPlusFill />
+								</button>
+								<button className='w-50 p-1 m-1' onClick={() => onRemove(item)}>
+									<BsCartDashFill />
+								</button>
+							</div>
+							<div className='col-md-1'>
+								<button className='mt-3 p-2' onClick={() => deleteProduct(item.id)}>
+									<MdRemoveShoppingCart
+										style={{ color: 'red', fontSize: '20px' }}
+									/>
+								</button>
+							</div>
+						</div>
+						
+					))}
+				</>
+			}
 			<hr />
 			<h2 className='text-danger'>Total: ${totalInCartPrice()}</h2>
 
@@ -79,7 +87,10 @@ export const Cart = () => {
 				>
 					Finalizar Compra
 				</button>
+				
 			</div>
+
 		</div>
+		
 	);
 };
