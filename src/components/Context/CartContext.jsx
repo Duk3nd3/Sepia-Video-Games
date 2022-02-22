@@ -6,12 +6,29 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
-	const AddtoCart = (item) => {
-		setCart([...cart, item]);
+	const AddtoCart = ({ item, cantidad }) => {
+		//Estoy consultando con el metodo inTheShoppingCart si el producto ya esta en el carrito
+		if (inTheShoppingCart(item.id)) {
+			//Filtrando el producto que se quiere agregar
+			const repetido = cart.find((itemCart) => itemCart.item.id === item.id);
+			//Sumando la cantidad que se quiere agregar al producto que ya esta en el carrito
+			repetido.cantidad = repetido.cantidad + cantidad;
+			//Separando el resto de productos que son distintos al que se quiere agregar.
+			const filtrados = cart.filter((itemCart) => itemCart.item.id !== item.id);
+			//Estamos uniendo los productos que ya estaban en el carrito junto al item/elementos/producto repetido que ya tiene la cantidad actualizada
+			setCart([...filtrados, repetido]);
+		} else {
+			//Volvemos a armar el objeto con sus respectivas propiedades
+			const newItem = {
+				item,
+				cantidad,
+			};
+			setCart([...cart, newItem]);
+		}
 	};
 
 	const inTheShoppingCart = (id) => {
-		return cart.some((prod) => prod.id === id);
+		return cart.some((item) => item.item.id === id);
 	};
 
 	const totalInCart = () => {
@@ -19,7 +36,10 @@ export const CartProvider = ({ children }) => {
 	};
 
 	const totalInCartPrice = () => {
-		return cart.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0);
+		return cart.reduce(
+			(acc, prod) => acc + prod.item.precio * prod.cantidad,
+			0
+		);
 	};
 
 	const cleanCart = () => {

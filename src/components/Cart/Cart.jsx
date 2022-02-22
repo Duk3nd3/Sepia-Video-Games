@@ -9,24 +9,27 @@ import { Link } from 'react-router-dom';
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
 		useContext(CartContext);
-	
+
 	return (
 		<div className='container my-4'>
 			<h2>Tu Compra</h2>
 			<hr />
-		
-			{!cart.length
-			? 	<div>
+
+			{!cart.length ? (
+				<div>
 					<div>Carrito Vacio</div>
-					<Link to='/' className={'text-decoration-none'}>Ir a comprar</Link>
+					<Link to='/' className={'text-decoration-none'}>
+						Ir a comprar
+					</Link>
 				</div>
-			:
+			) : (
 				<>
 					{cart.map((item) => (
-						<div key={item.id} className='row m-4'>
-							<div className='col-md-4'>{item.nombre}</div>
+						<div key={item.item.id} className='row m-4'>
+							<div className='col-md-4'>{item.item.nombre}</div>
 							<div className='col-md-2'>
-								<div className='text-danger'>Precio Unitario</div>${item.precio}
+								<div className='text-danger'>Precio Unitario</div>$
+								{item.item.precio}
 							</div>
 							<div className='col-md-2'>
 								<div className='text-danger'>
@@ -36,28 +39,36 @@ export const Cart = () => {
 							</div>
 							<div className='col-md-2'>
 								<div className='text-danger'>Precio Total</div>$
-								{item.cantidad * item.precio}
+								{item.cantidad * item.item.precio}
 							</div>
 							<div className='col-md-1'>
-								<button className='w-50 p-1 m-1' onClick={() => onAdd(item)}>
+								<button
+									className='w-50 p-1 m-1'
+									onClick={() => onAdd(item.item.id)}
+								>
 									<BsCartPlusFill />
 								</button>
-								<button className='w-50 p-1 m-1' onClick={() => onRemove(item)}>
+								<button
+									className='w-50 p-1 m-1'
+									onClick={() => onRemove(item.item.id)}
+								>
 									<BsCartDashFill />
 								</button>
 							</div>
 							<div className='col-md-1'>
-								<button className='mt-3 p-2' onClick={() => deleteProduct(item.id)}>
+								<button
+									className='mt-3 p-2'
+									onClick={() => deleteProduct(item.id)}
+								>
 									<MdRemoveShoppingCart
 										style={{ color: 'red', fontSize: '20px' }}
 									/>
 								</button>
 							</div>
 						</div>
-						
 					))}
 				</>
-			}
+			)}
 			<hr />
 			<h2 className='text-danger'>Total: ${totalInCartPrice()}</h2>
 
@@ -87,10 +98,7 @@ export const Cart = () => {
 				>
 					Finalizar Compra
 				</button>
-				
 			</div>
-
 		</div>
-		
 	);
 };

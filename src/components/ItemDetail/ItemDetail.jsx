@@ -17,21 +17,20 @@ export const ItemDetail = ({
 }) => {
 	const [cantidad, setCantidad] = useState(0);
 
-	const { AddtoCart, inTheShoppingCart } = useContext(CartContext);
+	const { AddtoCart } = useContext(CartContext);
 
-	const handleAdd = () => {
-		if (!inTheShoppingCart(id)) {
-			const addItem = {
+	const handleAdd = (counterAdd) => {
+		setCantidad(counterAdd);
+		const Item = {
+			item: {
 				id,
 				nombre,
 				precio,
-				stock,
-				cantidad,
-			};
-			AddtoCart(addItem);
-		}
+			},
+			cantidad: counterAdd,
+		};
+		AddtoCart(Item);
 	};
-
 	return (
 		<Card className='cardDetail'>
 			<Card.Img variant='top' src={img} alt={nombre} />
@@ -51,7 +50,7 @@ export const ItemDetail = ({
 				</Card.Text>
 			</Card.Body>
 
-			{inTheShoppingCart(id) ? (
+			{cantidad > 0 ? (
 				<Link to='/cart'>
 					<button className='border border-success m-2 p-2'>
 						Ver productos en carrito
@@ -59,19 +58,7 @@ export const ItemDetail = ({
 				</Link>
 			) : (
 				<>
-					<ItemCount
-						maxStock={stock}
-						counter={cantidad}
-						setCounter={setCantidad}
-					/>
-
-					<button
-						className='m-2 p-2'
-						onClick={handleAdd}
-						disabled={cantidad === 0}
-					>
-						Agregar al carrito
-					</button>
+					<ItemCount maxStock={stock} minStock={0} handleAdd={handleAdd} />
 				</>
 			)}
 		</Card>
