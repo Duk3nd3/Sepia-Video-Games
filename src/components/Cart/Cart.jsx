@@ -58,7 +58,7 @@ export const Cart = () => {
 							<div className='col-md-1'>
 								<button
 									className='mt-3 p-2'
-									onClick={() => deleteProduct(item.id)}
+									onClick={() => deleteProduct(item.item.id)}
 								>
 									<MdRemoveShoppingCart
 										style={{ color: 'red', fontSize: '20px' }}

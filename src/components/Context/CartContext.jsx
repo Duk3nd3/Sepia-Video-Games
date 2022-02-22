@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
 	const totalInCart = () => {
 		return cart.reduce((acc, prod) => acc + prod.cantidad, 0);
 	};
-
+	
 	const totalInCartPrice = () => {
 		return cart.reduce(
 			(acc, prod) => acc + prod.item.precio * prod.cantidad,
@@ -42,22 +42,26 @@ export const CartProvider = ({ children }) => {
 		);
 	};
 
+	//Vacia el carrito
 	const cleanCart = () => {
 		setCart([]);
 	};
 
+	//Elimina el producto por completo
 	const deleteProduct = (id) => {
-		setCart(cart.filter((prod) => prod.id !== id));
+		setCart(cart.filter((prod) => prod.item.id !== id));
 	};
 
-	const onAdd = (product) => {
-		const exist = cart.find((prod) => prod.id === product.id);
+	//Acumula productos
+	const onAdd = (id) => {
+		
+		const exist = cart.find((prod) => prod.item.id === id);
 		if (exist.cantidad >= 5) {
 			return false;
 		} else {
 			setCart(
 				cart.map((prod) =>
-					prod.id === product.id
+					prod.item.id === id
 						? { ...exist, cantidad: exist.cantidad + 1 }
 						: prod
 				)
@@ -65,14 +69,16 @@ export const CartProvider = ({ children }) => {
 		}
 	};
 
-	const onRemove = (product) => {
-		const exist = cart.find((prod) => prod.id === product.id);
+	//Descuenta productos 
+	const onRemove = (id) => {
+
+		const exist = cart.find((prod) => prod.item.id === id);
 		if (exist.cantidad === 1) {
 			return false;
 		} else {
 			setCart(
 				cart.map((prod) =>
-					prod.id === product.id
+					prod.item.id === id
 						? { ...exist, cantidad: exist.cantidad - 1 }
 						: prod
 				)
