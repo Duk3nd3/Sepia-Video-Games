@@ -1,7 +1,8 @@
 import { ItemList } from '../ItemList/ItemList';
-import PacmanLoader from 'react-spinners/PacmanLoader';
 import { useParams } from 'react-router-dom';
 import { Products } from '../Products/Products';
+import { Loader } from '../Loader/Loader';
+
 
 export const ItemListContainer = () => {
 	const { categoryId } = useParams();
@@ -10,21 +11,7 @@ export const ItemListContainer = () => {
 	return (
 		<>
 			{loading ? (
-				<PacmanLoader
-					size={75}
-					color={'#007A78'}
-					loading={loading}
-					css={{
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-						height: '15vh',
-						width: '15vw',
-						marginTop: '375px',
-						marginBottom: '375px',
-						marginLeft: '800px',
-					}}
-				/>
+				<Loader />
 			) : (
 				<>
 					<h2

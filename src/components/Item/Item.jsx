@@ -9,9 +9,9 @@ export const Item = ({ id, nombre, precio, img, desc, categoria, oferta }) => {
 			<Card.Img variant='top' src={img} />
 			<Card.Body>
 				<Card.Title>{nombre}</Card.Title>
-				<Card.Text as='div'>{categoria}</Card.Text>
-				<Card.Text as='div'>{desc}</Card.Text>
-				<Card.Text as='div'>Precio: ${precio}</Card.Text>
+				<Card.Text as='div'><span>Categoria: </span>{categoria}</Card.Text>
+				<Card.Text as='div'><span>Descripcion: </span>{desc}</Card.Text>
+				<Card.Text as='div'><span>Precio: $</span>{precio}</Card.Text>
 				<Link to={`/detalle/${id}`}>
 					<button className='itemButtom'>Ver más</button>
 				</Link>

@@ -5,6 +5,7 @@ import { MdRemoveShoppingCart } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import './Cart.css';
 
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =

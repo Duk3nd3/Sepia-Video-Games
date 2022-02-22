@@ -10,7 +10,7 @@ export const CartWidget = () => {
 	return (
 		<Link to='/cart' className={cart.length > 0 ? 'navCartShow text-decoration-none' : 'navCart'}>
 			<BsFillCartCheckFill size='30px' className='shopping-cart' />
-			<span className='m-2 p-1'>{totalInCart()}</span>
+			<span className='m-2 p-1 span-color'>{totalInCart()}</span>
 		</Link>
 	);
 };

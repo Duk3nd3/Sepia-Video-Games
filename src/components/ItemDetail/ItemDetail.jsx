@@ -13,7 +13,6 @@ export const ItemDetail = ({
 	desc,
 	stock,
 	categoria,
-	oferta,
 }) => {
 	const [cantidad, setCantidad] = useState(0);
 
@@ -36,16 +35,19 @@ export const ItemDetail = ({
 			<Card.Img variant='top' src={img} alt={nombre} />
 			<Card.Body>
 				<Card.Text as='div'>
-					<span>Código producto:</span>
+					<span>Código producto: </span>
 					{id}
 				</Card.Text>
 				<Card.Text as='div'>
-					<span>Descripción:</span>
+					<span>Descripción: </span>
 					{desc}
 				</Card.Text>
-				<Card.Text as='div'>Precio: ${precio}</Card.Text>
 				<Card.Text as='div'>
-					<span>Categoria:</span>
+					<span>Precio: $</span>
+					{precio}
+				</Card.Text>
+				<Card.Text as='div'>
+					<span>Categoria: </span>
 					{categoria}
 				</Card.Text>
 			</Card.Body>

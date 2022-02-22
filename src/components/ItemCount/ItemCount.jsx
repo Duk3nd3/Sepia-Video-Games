@@ -21,8 +21,8 @@ export const ItemCount = ({ maxStock, minStock = 0, handleAdd }) => {
 
 			<div className='countStyle'>
 				{counter < 5
-					? 'En Stock'
-					: 'Stock maximo disponible para este producto'}
+					? <span>En Stock</span>
+					: 'Stock maximo disponible'}
 			</div>
 			<div className='countStyle'>{counter}</div>
 
