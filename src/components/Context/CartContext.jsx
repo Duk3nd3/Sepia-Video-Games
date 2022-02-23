@@ -18,7 +18,7 @@ export const CartProvider = ({ children }) => {
 			//Estamos uniendo los productos que ya estaban en el carrito junto al item/elementos/producto repetido que ya tiene la cantidad actualizada
 			setCart([...filtrados, repetido]);
 		} else {
-			//Volvemos a armar el objeto con sus respectivas propiedades
+			//Si el producto no esta en el carrito lo agregamos al carrito
 			const newItem = {
 				item,
 				cantidad,

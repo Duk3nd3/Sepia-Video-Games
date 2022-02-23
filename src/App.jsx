@@ -25,7 +25,7 @@ function App() {
 						element={<ItemListContainer />}
 					/>
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
-					<Route path='/contacto' element={<Formulario />} />
+					<Route path='/productos/contacto' element={<Formulario />} />
 					<Route path='/cart' element={<Cart />} />
 					<Route path='*' element={<Error404 />} />
 				</Routes>
