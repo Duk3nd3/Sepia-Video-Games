@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 import { MdRemoveShoppingCart } from 'react-icons/md';
+import { CgGames } from 'react-icons/cg';
 import Swal from 'sweetalert2';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -19,8 +20,9 @@ export const Cart = () => {
 			{!cart.length ? (
 				<div>
 					<div>Carrito Vacio</div>
-					<Link to='/' className={'text-decoration-none'}>
-						Ir a comprar
+					<Link to='/'>
+						<CgGames style={{ color: 'green', fontSize: '40px' }} />
+						{' Click aca para ver mas clasicos!'}
 					</Link>
 				</div>
 			) : (

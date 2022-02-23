@@ -20,7 +20,7 @@ export const NavBar = () => {
 				<Link to='/productos/arcades' className='header-link'>
 					Arcades
 				</Link>
-				<Link to='/Error404Adrede' className='header-link'>
+				<Link to='/productos/contacto' className='header-link'>
 					Contacto
 				</Link>
 			</nav>

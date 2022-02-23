@@ -6,12 +6,11 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
 
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Contacto } from './components/Pages/Contacto';
 import { Cart } from './components/Cart/Cart';
 import { Error404 } from './components/Pages/Error404';
 import { CartProvider } from './components/Context/CartContext';
+import { Formulario } from './components/Form/Formulario';
 
 function App() {
 	return (
@@ -26,9 +25,8 @@ function App() {
 						element={<ItemListContainer />}
 					/>
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
-					<Route path='/contactos' element={<Contacto />} />
+					<Route path='/contacto' element={<Formulario />} />
 					<Route path='/cart' element={<Cart />} />
-
 					<Route path='*' element={<Error404 />} />
 				</Routes>
 
