@@ -1,70 +1,58 @@
-import "./Form.css";
-import React, { useState } from "react";
-import { ddbb } from "../../Firebase/Config";
+import React, { useState } from 'react';
+import './Form.css';
+import { ddbb } from '../../Firebase/Config';
 
 export const Formulario = () => {
+	const [nombre, setNombre] = useState('');
+	const [email, setEmail] = useState('');
+	const [mensaje, setMensaje] = useState('');
 
-	const [name, setName] = useState("");
-  	const [email, setEmail] = useState("");
-  	const [message, setMessage] = useState("");
+	const handleSubmit = (event) => {
+		event.preventDefault();
 
-  const [loader, setLoader] = useState(false);
+		const data = {
+			nombre,
+			email,
+			mensaje,
+		};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoader(true);
+		ddbb
+			.collection('contacto')
+			.add(data)
+			.then(() => {
+				setNombre('');
+				setEmail('');
+				setMensaje('');
+			});
+	};
 
-    ddbb.collection("contacts")
-      .add({
-        name: name,
-        email: email,
-        message: message,
-      })
-      .then(() => {
-        setLoader(false);
-        alert("Tu mensaje ha sido enviado 👍");
-      })
-      .catch((error) => {
-        alert(error.message);
-        setLoader(false);
-      });
+	return (
+		<form className='form' onSubmit={handleSubmit}>
+			<h1>Contactanos 🤳</h1>
+			<hr />
 
-    setName("");
-    setEmail("");
-    setMessage("");
-  };
+			<label>Nombre</label>
+			<input
+				placeholder='Nombre'
+				value={nombre}
+				onChange={(event) => setNombre(event.target.value)}
+			/>
 
-  return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h1>Formulario de Contacto 🤳</h1>
+			<label>Email</label>
+			<input
+				placeholder='Email'
+				value={email}
+				onChange={(event) => setEmail(event.target.value)}
+			/>
 
-      <label>Nombre</label>
-      <input
-        placeholder="Nombre"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+			<label>Mensaje</label>
+			<textarea
+				placeholder='Mensaje'
+				value={mensaje}
+				onChange={(event) => setMensaje(event.target.value)}
+			></textarea>
 
-      <label>Email</label>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <label>Caja de comentarios</label>
-      <textarea
-        placeholder="Mensaje"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      ></textarea>
-
-      <button
-        type="submit"
-        style={{ background: loader ? "#ccc" : " rgb(102, 59, 42)" }}
-      >
-        Enviar
-      </button>
-    </form>
-  );
+			<button type='submit'>Enviar</button>
+		</form>
+	);
 };
