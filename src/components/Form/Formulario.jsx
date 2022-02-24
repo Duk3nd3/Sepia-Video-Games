@@ -27,32 +27,34 @@ export const Formulario = () => {
 	};
 
 	return (
-		<form className='form' onSubmit={handleSubmit}>
-			<h1>Contactanos 🤳</h1>
-			<hr />
+		<>
+			<form className='form' onSubmit={handleSubmit}>
+				<h1>Contactanos 🤳</h1>
+				<hr />
 
-			<label>Nombre</label>
-			<input
-				placeholder='Nombre'
-				value={nombre}
-				onChange={(event) => setNombre(event.target.value)}
-			/>
+				<label>Nombre</label>
+				<input
+					placeholder='Nombre'
+					value={nombre}
+					onChange={(event) => setNombre(event.target.value)}
+				/>
 
-			<label>Email</label>
-			<input
-				placeholder='Email'
-				value={email}
-				onChange={(event) => setEmail(event.target.value)}
-			/>
+				<label>Email</label>
+				<input
+					placeholder='Email'
+					value={email}
+					onChange={(event) => setEmail(event.target.value)}
+				/>
 
-			<label>Mensaje</label>
-			<textarea
-				placeholder='Mensaje'
-				value={mensaje}
-				onChange={(event) => setMensaje(event.target.value)}
-			></textarea>
+				<label>Mensaje</label>
+				<textarea
+					placeholder='Mensaje'
+					value={mensaje}
+					onChange={(event) => setMensaje(event.target.value)}
+				></textarea>
 
-			<button type='submit'>Enviar</button>
-		</form>
+				<button type='submit'>Enviar</button>
+			</form>
+		</>
 	);
 };

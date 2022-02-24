@@ -62,8 +62,8 @@ textarea:focus {
 	background-color: rgb(45, 238, 148);
 }
 
-hr {
-	width: 25%;
+form hr {
+	width: 50%;
 	border: 0;
 	background-image: linear-gradient(
 		to right,
