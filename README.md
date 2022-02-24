@@ -1,6 +1,8 @@
 ## Hello 🌏 ! <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px"></h2>
 
-<br />
+#### Lets get started. . .
+
+<br /><br />
 <img text-align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
 
 <br /><br /><br />
@@ -9,29 +11,29 @@
 
 ## Home Page
 
-<img text-align="right" alt="GIF" src="https://s10.gifyu.com/images/mostrando_pagina_principal1.gif" />
+<img text-align="right" alt="mostrando pagina principal" src="https://s10.gifyu.com/images/mostrando_pagina_principal1.gif" />
 
 <br /><br />
 
 ## Adding products from. . .
 
-<img text-align="right" alt="GIF" src="https://s10.gifyu.com/images/agregando_productos_al_carrito.gif" />
+<img text-align="right" alt="agregando productos al carrito" src="https://s10.gifyu.com/images/agregando_productos_al_carrito.gif" />
 
 <br /><br />
 
 ## Using Shopping Cart with. . .
 
-<img text-align="right" alt="GIF" src="https://s10.gifyu.com/images/manipulando_carrito_parte_1.gif" />
+<img text-align="right" alt="manipulando el carrito parte 1" src="https://s10.gifyu.com/images/manipulando_carrito_parte_1.gif" />
 
 <br /><br />
 
-<img text-align="right" alt="GIF" src="https://s10.gifyu.com/images/manipulando_carrito_parte_2.gif" />
+<img text-align="right" alt="manipulando el carrito parte 2" src="https://s10.gifyu.com/images/manipulando_carrito_parte_2.gif" />
 
 <br /><br />
 
 ## Filtering products. . .
 
-<img text-align="right" alt="GIF" src="https://s10.gifyu.com/images/mostrando_modulos_filtrados.gif" />
+<img text-align="right" alt="mostrando modulos filtrados" src="https://s10.gifyu.com/images/mostrando_modulos_filtrados.gif" />
 
 <br /><br /><br />
 
