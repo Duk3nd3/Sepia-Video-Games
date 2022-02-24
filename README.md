@@ -17,7 +17,7 @@
 
 ## Adding products from. . .
 
-<img src="https://s10.gifyu.com/images/agregando_productos_al_carrito.gif" alt="agregando_productos_al_carrito.gif" text-align='right'>
+[img]https://s10.gifyu.com/images/agregando_productos_al_carrito.gif[/img]
 
 <br /><br />
 
