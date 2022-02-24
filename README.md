@@ -2,7 +2,7 @@
 
 #### Lets get started. . .
 
-<br /><br />
+<br />
 <img text-align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
 
 <br /><br /><br />
@@ -17,7 +17,7 @@
 
 ## Adding products from. . .
 
-[img]https://s10.gifyu.com/images/agregando_productos_al_carrito.gif[/img]
+<img text-align="right" alt="agregando productos al carrito" src="https://s10.gifyu.com/images/agregando_productos_al_carrito.gif">
 
 <br /><br />
 
