@@ -5,8 +5,8 @@ import { ddbb } from "../../Firebase/Config";
 export const Formulario = () => {
 
 	const [name, setName] = useState("");
-  	const [email, setEmail] = useState("");
-  	const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const [loader, setLoader] = useState(false);
 

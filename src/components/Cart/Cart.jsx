@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import { CgGames } from 'react-icons/cg';
-import Swal from 'sweetalert2';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './Cart.css';
@@ -83,24 +82,9 @@ export const Cart = () => {
 				>
 					Limpiar Carrito
 				</button>
-				<button
-					className='mx-2 p-2 m-2'
-					onClick={() =>
-						Swal.fire({
-							title: 'Compra finalizada con exito!',
-							text: 'Se envio correo con los datos de la factura',
-							icon: 'success',
-							confirmButtonText: '<a href="/">Aceptar</a>',
-							confirmButtonColor: 'white',
-							allowOutsideClick: false,
-							allowEscapeKey: false,
-							allowEnterKey: false,
-						})
-					}
-					disabled={cart.length === 0}
-				>
+				<Link to='/Checkout'>
 					Finalizar Compra
-				</button>
+				</Link>
 			</div>
 		</div>
 	);
