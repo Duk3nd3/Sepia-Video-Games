@@ -11,6 +11,7 @@ import { Cart } from './components/Cart/Cart';
 import { Error404 } from './components/Pages/Error404';
 import { CartProvider } from './components/Context/CartContext';
 import { Formulario } from './components/Form/Formulario';
+import { Checkout } from './components/Checkout/Checkout';
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
 					<Route path='/productos/contacto' element={<Formulario />} />
 					<Route path='/cart' element={<Cart />} />
+					<Route path='/checkout' element={<Checkout />} />
 					<Route path='*' element={<Error404 />} />
 				</Routes>
 

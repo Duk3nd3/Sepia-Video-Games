@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
 	const totalInCart = () => {
 		return cart.reduce((acc, prod) => acc + prod.cantidad, 0);
 	};
-	
+
 	const totalInCartPrice = () => {
 		return cart.reduce(
 			(acc, prod) => acc + prod.item.precio * prod.cantidad,
@@ -54,7 +54,6 @@ export const CartProvider = ({ children }) => {
 
 	//Acumula productos
 	const onAdd = (id) => {
-		
 		const exist = cart.find((prod) => prod.item.id === id);
 		if (exist.cantidad >= 5) {
 			return false;
@@ -69,9 +68,8 @@ export const CartProvider = ({ children }) => {
 		}
 	};
 
-	//Descuenta productos 
+	//Descuenta productos
 	const onRemove = (id) => {
-
 		const exist = cart.find((prod) => prod.item.id === id);
 		if (exist.cantidad === 1) {
 			return false;
