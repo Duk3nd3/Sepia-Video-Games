@@ -75,16 +75,20 @@ export const Cart = () => {
 			<h2 className='text-danger'>Total: ${totalInCartPrice()}</h2>
 
 			<div className='my-2'>
-				<button
-					className='p-2 m-2'
-					onClick={cleanCart}
-					disabled={cart.length === 0}
-				>
-					Limpiar Carrito
-				</button>
-				<Link to='/Checkout'>
-					Finalizar Compra
-				</Link>
+					<button
+						className='p-2 m-2'
+						onClick={cleanCart}
+						disabled={cart.length === 0}
+					>
+						Limpiar Carrito
+					</button>
+					<button
+						className='p-2 m-2'
+						disabled={cart.length === 0}
+					>
+						<Link to={cart.length > 0 ? '/Checkout' : '' }  />
+							Finalizar Compra
+					</button>
 			</div>
 		</div>
 	);

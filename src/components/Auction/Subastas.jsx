@@ -10,7 +10,7 @@ export const Subastas = () => {
 				<h1 className='tittle'>Subastas</h1>
 				<img className='img-subasta' src={Auction} alt="subastas" />
 				<hr />
-				<h3 className='subTittle'>Proxima subasta en. . .</h3>
+				<h3 className='subTittle'>Tiempo restante. . .</h3>
 				<Countdown />
 			</div>
 		</>

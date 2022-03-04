@@ -19,7 +19,7 @@ export const ThanksforPurchasing = ({ order }) => {
 					marginLeft: '125px',
 				}}
 			/>
-			{'Quiero seguir comprando!'}
+			{'Quiero seguir comprando'}
 		</Link>
 	</>;
 };
