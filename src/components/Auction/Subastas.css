@@ -1,0 +1,25 @@
+.subastas {
+	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+	justify-content: center;
+	max-width: 100%;
+	max-height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.img-subasta {
+	max-width: 100%;
+	width: 5%;
+}
+
+.tittle {
+	margin-top: 5%;
+	max-width: 100%;
+}
+
+.subTittle {
+	color: rgb(0, 0, 0);
+}

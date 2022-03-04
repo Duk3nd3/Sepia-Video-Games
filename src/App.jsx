@@ -10,7 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Cart } from './components/Cart/Cart';
 import { Error404 } from './components/Pages/Error404';
 import { CartProvider } from './components/Context/CartContext';
-import { Formulario } from './components/Form/Formulario';
+import { Subastas } from './components/Auction/Subastas';
 import { Checkout } from './components/Checkout/Checkout';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 						element={<ItemListContainer />}
 					/>
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
-					<Route path='/productos/contacto' element={<Formulario />} />
+					<Route path='/productos/subastas' element={<Subastas />} />
 					<Route path='/cart' element={<Cart />} />
 					<Route path='/checkout' element={<Checkout />} />
 					<Route path='*' element={<Error404 />} />

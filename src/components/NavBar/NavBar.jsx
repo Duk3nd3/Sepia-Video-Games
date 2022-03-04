@@ -20,8 +20,8 @@ export const NavBar = () => {
 				<Link to='/productos/arcades' className='header-link'>
 					Arcades
 				</Link>
-				<Link to='/productos/contacto' className='header-link'>
-					Contacto
+				<Link to='/productos/subastas' className='header-link'>
+					Subastas
 				</Link>
 			</nav>
 
