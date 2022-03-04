@@ -2,10 +2,10 @@ import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 import { MdRemoveShoppingCart } from 'react-icons/md';
-import { CgGames } from 'react-icons/cg';
 import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './Cart.css';
+import { Empty } from './Empty';
 
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
@@ -17,13 +17,7 @@ export const Cart = () => {
 			<hr />
 
 			{!cart.length ? (
-				<div>
-					<div>Carrito Vacio</div>
-					<Link to='/'>
-						<CgGames style={{ color: 'green', fontSize: '40px' }} />
-						{' Click aca para ver mas clasicos!'}
-					</Link>
-				</div>
+				<Empty />
 			) : (
 				<>
 					{cart.map((item) => (
@@ -82,13 +76,9 @@ export const Cart = () => {
 					>
 						Limpiar Carrito
 					</button>
-					<button
-						className='p-2 m-2'
-						disabled={cart.length === 0}
-					>
-						<Link to={cart.length > 0 ? '/Checkout' : '' }  />
-							Finalizar Compra
-					</button>
+					<Link to= '/Checkout' className={cart.length > 0 ? 'endPayment active-link' : 'emptyCart'}>
+						Finalizar Compra
+					</Link>
 			</div>
 		</div>
 	);

@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
 // import Swal from 'sweetalert2';
 import { ThanksforPurchasing } from './ThanksForPurchasing';
-import { Empty } from './Empty';
 import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
 
@@ -33,11 +32,6 @@ export const Checkout = () => {
 	//SI TENEMOS UNA ORDEN DE COMPRA, EJECUTAMOS LO SIGUIENTE
 	if (orderId) {
 		return <ThanksforPurchasing order={orderId} />;
-	}
-
-	//CHECKOUT NO DEBE ESTAR VACIO
-	if (cart.length === 0) {
-		return <Empty />;
 	}
 
 	return (

@@ -2,6 +2,31 @@ a {
 	text-decoration: none !important;
 }
 
+.disabled-link {
+	pointer-events: none;
+	cursor: default;
+}
+
+.endPayment {
+	visibility: visible;
+	opacity: 1;
+}
+
+.emptyCart {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
 .active-link {
-	color: rgb(0, 0, 0);
+	border-width: 2px;
+	border-style: outset;
+	display: inline-block;
+	background-color: rgba(209, 209, 209, 0.234);
+	text-rendering: auto;
+    color: black !important;
+	border-radius: 0;
+	padding: 0.5rem;
+	margin: 0.5rem;
 }

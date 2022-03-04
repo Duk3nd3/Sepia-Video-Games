@@ -1,14 +1,12 @@
-import { MdRemoveShoppingCart } from 'react-icons/md';
+import { CgGames } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 
 export const Empty = () => {
 	return (
 		<div className='container my-4'>
-			<h2>Tu Compra</h2>
-			<hr />
 			<div>Aun no has comprado nada</div>
 			<Link to='/'>
-				<MdRemoveShoppingCart
+				<CgGames
 					style={{
 						color: 'green',
 						fontSize: '40px',
