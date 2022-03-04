@@ -26,17 +26,18 @@ export const Checkout = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		validateFormCheckout(values) && createOrder(values, cart, totalInCartPrice, cleanCart, setOrderId);
+		validateFormCheckout(values) &&
+			createOrder(values, cart, totalInCartPrice, cleanCart, setOrderId);
 	};
 
 	//SI TENEMOS UNA ORDEN DE COMPRA, EJECUTAMOS LO SIGUIENTE
 	if (orderId) {
-		return <ThanksforPurchasing order={orderId}/>
+		return <ThanksforPurchasing order={orderId} />;
 	}
 
 	//CHECKOUT NO DEBE ESTAR VACIO
 	if (cart.length === 0) {
-		return <Empty/>
+		return <Empty />;
 	}
 
 	return (
