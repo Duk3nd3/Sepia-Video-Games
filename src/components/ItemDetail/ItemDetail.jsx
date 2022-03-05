@@ -35,19 +35,19 @@ export const ItemDetail = ({
 			<Card.Img variant='top' src={img} alt={nombre} />
 			<Card.Body>
 				<Card.Text as='div'>
-					<span>Código producto: </span>
+					<span>Código producto </span>
 					{id}
 				</Card.Text>
 				<Card.Text as='div'>
-					<span>Descripción: </span>
+					<span>Descripción </span>
 					{desc}
 				</Card.Text>
 				<Card.Text as='div'>
-					<span>Precio: $</span>
+					<span>Precio $</span>
 					{precio}
 				</Card.Text>
 				<Card.Text as='div'>
-					<span>Categoria: </span>
+					<span>Categoria </span>
 					{categoria}
 				</Card.Text>
 			</Card.Body>

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Products } from '../Products/Products';
 import { Loader } from '../Loader/Loader';
 
-
 export const ItemListContainer = () => {
 	const { categoryId } = useParams();
 	const { loading, productos } = Products(categoryId);
