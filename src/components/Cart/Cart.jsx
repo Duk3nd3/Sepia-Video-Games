@@ -70,9 +70,8 @@ export const Cart = () => {
 
 			<div className='my-2'>
 					<button
-						className='p-2 m-2'
+						className={cart.length > 0 ? 'endPayment active-link p-2 m-2' : 'emptyCart'}
 						onClick={cleanCart}
-						disabled={cart.length === 0}
 					>
 						Limpiar Carrito
 					</button>

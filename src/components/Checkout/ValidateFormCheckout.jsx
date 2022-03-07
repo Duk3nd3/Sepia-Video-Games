@@ -1,18 +1,94 @@
+import Swal from 'sweetalert2';
+
+
 export const validateFormCheckout = (values) => {
-	if (values.name.length < 5) {
-		alert('El nombre debe tener al menos 5 caracteres');
+	
+	const errors = {
+		name: '',
+		email: '',
+		phone: '',
+	};
+
+	if (!values.name) {
+		errors.name = 
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Nombre requerido',
+			footer: 'Campo vacio',
+			allowEscapeKey: true,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
+		return false;
+	} else if ((!isNaN(values.name))) {
+		errors.name = 
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Nombre invalido',
+			footer: 'Solo se permiten letras',
+			allowEscapeKey: false,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
 		return false;
 	}
 
-	if (values.email.length < 7) {
-		alert('El email es invalido');
+	if (!values.email) {
+		errors.email = 
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'El email es requerido',
+			footer: 'Campo vacio',
+			allowEscapeKey: false,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
+		return false;
+	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+		errors.email =
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Verifique email ingresado',
+			footer: 'Formato incorrecto',
+			allowEscapeKey: false,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
 		return false;
 	}
 
-	if (values.phone.length < 8) {
-		alert('El telefono es invalido');
+	if (!values.phone) {
+		errors.phone =
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'El telefono es requerido',
+			footer: 'Campo vacio',
+			allowEscapeKey: false,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
+		return false;
+	} else if (isNaN(values.phone)) {
+		errors.phone =
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Numero invalido',
+			footer: 'Solo se permiten numeros',
+			allowEscapeKey: false,
+			allowOutsideClick: false,
+			allowEnterKey: false,
+		  })
 		return false;
 	}
 
-	return true;
+
+
+	return errors;
+
 };

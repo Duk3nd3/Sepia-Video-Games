@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
-// import Swal from 'sweetalert2';
 import { ThanksforPurchasing } from './ThanksForPurchasing';
 import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
+
+
 
 export const Checkout = () => {
 	const { cart, totalInCartPrice, cleanCart } = useContext(CartContext);
@@ -35,6 +36,7 @@ export const Checkout = () => {
 	}
 
 	return (
+		
 		<div className='container my-5'>
 			<h2>Checkout</h2>
 			<hr />
@@ -66,20 +68,8 @@ export const Checkout = () => {
 				/>
 
 				<button
-				// className='mx-2 p-2 m-2'
-				// onClick={() =>
-				// 	Swal.fire({
-				// 		title: 'Compra finalizada con exito!',
-				// 		text: 'Se envio correo con los datos de la factura',
-				// 		icon: 'success',
-				// 		confirmButtonText: '<a href="/">Aceptar</a>',
-				// 		confirmButtonColor: 'white',
-				// 		allowOutsideClick: false,
-				// 		allowEscapeKey: false,
-				// 		allowEnterKey: false,
-				// 	})
-				// }
-				// disabled={cart.length === 0}
+				className='mx-2 p-2 m-2'
+				disabled={cart.length === 0 || values.name === '' || values.email === '' || values.phone === ''}
 				>
 					Enviar
 				</button>
