@@ -3,6 +3,7 @@ import { CartContext } from '../Context/CartContext';
 import { ThanksforPurchasing } from './ThanksForPurchasing';
 import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
+import { Loader } from '../Loader/Loader';
 
 
 
@@ -36,44 +37,53 @@ export const Checkout = () => {
 	}
 
 	return (
-		
-		<div className='container my-5'>
-			<h2>Checkout</h2>
-			<hr />
+		<>	
+			
+			{ orderId ? (
+				<Loader />
+			) : (
+				
+			<>
+				<div className='container my-5'>
+					<h2>Checkout</h2>
+					<hr />
 
-			<form onSubmit={handleSubmit}>
-				<input
-					className='form-control my-2'
-					type='text'
-					placeholder='Tu nombre'
-					value={values.name}
-					onChange={handleInputChange}
-					name='name'
-				/>
-				<input
-					className='form-control my-2'
-					type='email'
-					placeholder='Tu email'
-					value={values.email}
-					onChange={handleInputChange}
-					name='email'
-				/>
-				<input
-					className='form-control my-2'
-					type='phone'
-					placeholder='Tu telefono'
-					value={values.phone}
-					onChange={handleInputChange}
-					name='phone'
-				/>
+					<form onSubmit={handleSubmit}>
+						<input
+							className='form-control my-2'
+							type='text'
+							placeholder='Tu nombre'
+							value={values.name}
+							onChange={handleInputChange}
+							name='name'
+						/>
+						<input
+							className='form-control my-2'
+							type='email'
+							placeholder='Tu email'
+							value={values.email}
+							onChange={handleInputChange}
+							name='email'
+						/>
+						<input
+							className='form-control my-2'
+							type='phone'
+							placeholder='Tu telefono'
+							value={values.phone}
+							onChange={handleInputChange}
+							name='phone'
+						/>
 
-				<button
-				className='mx-2 p-2 m-2'
-				disabled={cart.length === 0 || values.name === '' || values.email === '' || values.phone === ''}
-				>
-					Enviar
-				</button>
-			</form>
-		</div>
+						<button
+						className='mx-2 p-2 m-2'
+						disabled={cart.length === 0 || values.name === '' || values.email === '' || values.phone === ''}
+						>
+							Enviar
+						</button>
+					</form>
+				</div>
+				</>
+			)}
+		</>
 	);
 };

@@ -25,20 +25,29 @@ export const createOrder = async (
 		purchaseDate: Timestamp.fromDate(new Date()),
 	};
 
+	console.log(order);
+	console.log(typeof order);
+
 	const batch = writeBatch(ddbb);
-	const purchaseReference = collection(ddbb, 'orders');
+
 	const stockReference = collection(ddbb, 'stock');
 
-	const q = query(
+	
+
+	const ordersReference = collection(ddbb, 'orders');
+	
+	console.log(stockReference);
+	console.log(typeof stockReference);
+
+	const stockQuery = query(
 		stockReference,
 		where(
 			documentId(),
 			'in',
-			cart.map((element) => element.id)
-		)
-	);
+			cart.map((element) => element.id))
+			);
 
-	const stock = await getDocs(q);
+	const stock = await getDocs(stockQuery);
 	const outOfStock = [];
 
 	stock.documents.forEach((document) => {
@@ -54,7 +63,7 @@ export const createOrder = async (
 	});
 
 	if (outOfStock.length === 0) {
-		addDoc(purchaseReference, order).then((document) => {
+		addDoc(ordersReference, order).then((document) => {
 			batch.commit();
 			Swal.fire({
 				icon: 'success',
