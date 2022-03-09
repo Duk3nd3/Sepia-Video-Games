@@ -37,7 +37,7 @@ export const Checkout = () => {
 
 	return (
 		<>	
-			<div className='container my-5'>
+			<div className='container my-5 col-md-6'>
 				<h2>Checkout</h2>
 				<hr />
 					<form onSubmit={handleSubmit}>
