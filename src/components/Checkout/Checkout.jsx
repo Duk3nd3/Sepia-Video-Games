@@ -3,7 +3,6 @@ import { CartContext } from '../Context/CartContext';
 import { ThanksforPurchasing } from './ThanksForPurchasing';
 import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
-import { Loader } from '../Loader/Loader';
 
 
 
@@ -38,16 +37,9 @@ export const Checkout = () => {
 
 	return (
 		<>	
-			
-			{ orderId ? (
-				<Loader />
-			) : (
-				
-			<>
-				<div className='container my-5'>
-					<h2>Checkout</h2>
-					<hr />
-
+			<div className='container my-5'>
+				<h2>Checkout</h2>
+				<hr />
 					<form onSubmit={handleSubmit}>
 						<input
 							className='form-control my-2'
@@ -81,9 +73,8 @@ export const Checkout = () => {
 							Enviar
 						</button>
 					</form>
-				</div>
-				</>
-			)}
-		</>
+			</div>
+		</>	
+
 	);
 };

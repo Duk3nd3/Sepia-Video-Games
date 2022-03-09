@@ -21,7 +21,7 @@ export const validateFormCheckout = (values) => {
 			allowEnterKey: false,
 		  })
 		return false;
-	} else if ((!isNaN(values.name))) {
+	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
 		errors.name = 
 		Swal.fire({
 			icon: 'error',
@@ -47,7 +47,7 @@ export const validateFormCheckout = (values) => {
 			allowEnterKey: false,
 		  })
 		return false;
-	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+	} else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
 		errors.email =
 		Swal.fire({
 			icon: 'error',
@@ -73,7 +73,7 @@ export const validateFormCheckout = (values) => {
 			allowEnterKey: false,
 		  })
 		return false;
-	} else if (isNaN(values.phone)) {
+	} else if (!/^\d{10,14}$/.test(values.phone)) {
 		errors.phone =
 		Swal.fire({
 			icon: 'error',
@@ -86,8 +86,6 @@ export const validateFormCheckout = (values) => {
 		  })
 		return false;
 	}
-
-
 
 	return errors;
 
