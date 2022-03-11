@@ -20,9 +20,7 @@ export const ItemCount = ({ maxStock, minStock = 0, handleAdd }) => {
 			</button>
 
 			<div className='countStyle'>
-				{counter < 5
-					? <span>En Stock</span>
-					: 'Stock maximo disponible'}
+				{counter < maxStock ? <span>En Stock</span> : 'Stock maximo disponible'}
 			</div>
 			<div className='countStyle'>{counter}</div>
 

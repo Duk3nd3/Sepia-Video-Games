@@ -15,8 +15,7 @@ export const createOrder = async (
 	values,
 	cart,
 	totalInCartPrice,
-	cleanCart,
-	setOrderId
+	cleanCart
 ) => {
 	const order = {
 		buyer: values,
@@ -25,37 +24,29 @@ export const createOrder = async (
 		purchaseDate: Timestamp.fromDate(new Date()),
 	};
 
-	console.log(order);
-	console.log(typeof order);
-
 	const batch = writeBatch(ddbb);
 
 	const stockReference = collection(ddbb, 'stock');
 
-	
-
 	const ordersReference = collection(ddbb, 'orders');
-	
-	console.log(stockReference);
-	console.log(typeof stockReference);
 
 	const stockQuery = query(
 		stockReference,
 		where(
 			documentId(),
 			'in',
-			cart.map((element) => element.id))
-			);
+			cart.map(({ item }) => item.id)
+		)
+	);
 
 	const stock = await getDocs(stockQuery);
 	const outOfStock = [];
 
-	stock.documents.forEach((document) => {
-		const itemToUpdate = cart.find((element) => element.id === document.id);
-
-		if (document.data().stock >= itemToUpdate.quantity) {
+	stock.docs.forEach((document) => {
+		const itemToUpdate = cart.find(({ item }) => item.id === document.id);
+		if (document.data().stock >= itemToUpdate.cantidad) {
 			batch.update(document.ref, {
-				stock: document.data().stock - itemToUpdate.quantity,
+				stock: document.data().stock - itemToUpdate.cantidad,
 			});
 		} else {
 			outOfStock.push(itemToUpdate);
@@ -67,18 +58,11 @@ export const createOrder = async (
 			batch.commit();
 			Swal.fire({
 				icon: 'success',
-				title: 'Su orden ha sido registrada',
+				title: 'Compra registrada con exito',
 				text: `Su número de orden es: ${document.id}`,
+				footer: 'Por favor, guarde esta informacion. Gracias.',
 			});
-			setOrderId(document.id);
 			cleanCart();
-		});
-	} else {
-		Swal.fire({
-			icon: 'error',
-			title: 'No hay stock de los siguientes productos:',
-			text: outOfStock.map((element) => element.name).join(', '),
-			confirmButtonText: 'Ok',
 		});
 	}
 };

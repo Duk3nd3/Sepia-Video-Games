@@ -28,9 +28,7 @@ export const Cart = () => {
 								{item.item.precio}
 							</div>
 							<div className='col-md-2'>
-								<div className='text-danger'>
-									{item.cantidad === 5 ? 'Maximo Stock' : 'Cantidad: '}
-								</div>
+								<div className='text-danger'>Cantidad:</div>
 								{item.cantidad}
 							</div>
 							<div className='col-md-2'>
@@ -69,15 +67,20 @@ export const Cart = () => {
 			<h2 className='text-danger'>Total: ${totalInCartPrice()}</h2>
 
 			<div className='my-2'>
-					<button
-						className={cart.length > 0 ? 'endPayment active-link p-2 m-2' : 'emptyCart'}
-						onClick={cleanCart}
-					>
-						Limpiar Carrito
-					</button>
-					<Link to= '/Checkout' className={cart.length > 0 ? 'endPayment active-link' : 'emptyCart'}>
-						Finalizar Compra
-					</Link>
+				<button
+					className={
+						cart.length > 0 ? 'endPayment active-link p-2 m-2' : 'emptyCart'
+					}
+					onClick={cleanCart}
+				>
+					Limpiar Carrito
+				</button>
+				<Link
+					to='/Checkout'
+					className={cart.length > 0 ? 'endPayment active-link' : 'emptyCart'}
+				>
+					Finalizar Compra
+				</Link>
 			</div>
 		</div>
 	);

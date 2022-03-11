@@ -1,8 +1,6 @@
 import Swal from 'sweetalert2';
 
-
 export const validateFormCheckout = (values) => {
-	
 	const errors = {
 		name: '',
 		email: '',
@@ -10,8 +8,7 @@ export const validateFormCheckout = (values) => {
 	};
 
 	if (!values.name) {
-		errors.name = 
-		Swal.fire({
+		errors.name = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'Nombre requerido',
@@ -19,11 +16,10 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: true,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-		errors.name = 
-		Swal.fire({
+		errors.name = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'Nombre invalido',
@@ -31,13 +27,12 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: false,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
 	}
 
 	if (!values.email) {
-		errors.email = 
-		Swal.fire({
+		errors.email = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'El email es requerido',
@@ -45,11 +40,12 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: false,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
-	} else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
-		errors.email =
-		Swal.fire({
+	} else if (
+		!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)
+	) {
+		errors.email = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'Verifique email ingresado',
@@ -57,13 +53,12 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: false,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
 	}
 
 	if (!values.phone) {
-		errors.phone =
-		Swal.fire({
+		errors.phone = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'El telefono es requerido',
@@ -71,11 +66,10 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: false,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
 	} else if (!/^\d{10,14}$/.test(values.phone)) {
-		errors.phone =
-		Swal.fire({
+		errors.phone = Swal.fire({
 			icon: 'error',
 			title: 'Error',
 			text: 'Numero invalido',
@@ -83,10 +77,9 @@ export const validateFormCheckout = (values) => {
 			allowEscapeKey: false,
 			allowOutsideClick: false,
 			allowEnterKey: false,
-		  })
+		});
 		return false;
 	}
 
 	return errors;
-
 };
