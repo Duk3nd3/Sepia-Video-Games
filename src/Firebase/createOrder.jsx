@@ -59,8 +59,13 @@ export const createOrder = async (
 			Swal.fire({
 				icon: 'success',
 				title: 'Compra registrada con exito',
-				text: `Su número de orden es: ${document.id}`,
-				footer: 'Por favor, guarde esta informacion. Gracias.',
+				html: `Numero de orden generado ${document.id}`,
+				confirmButtonText: 'Genial!',
+				confirmButtonColor: 'rgba(113, 66, 20, 1)',
+				allowOutsideClick: false,
+				allowEnterKey: false,
+				allowEscapeKey: false,
+				footer: 'No pierda este numero.Gracias.',
 			});
 			cleanCart();
 		});
