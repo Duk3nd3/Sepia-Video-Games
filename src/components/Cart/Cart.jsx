@@ -6,13 +6,15 @@ import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './Cart.css';
 import { Empty } from './Empty';
+import lakitu from '../assets/Cart/lakitu.gif';
 
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
 		useContext(CartContext);
 
 	return (
-		<div className='container my-4'>
+		<div className='footerStyle container'>
+			<img className='img-cart' src={lakitu} alt='carrito' />
 			<h2>Tu Compra</h2>
 			<hr />
 

@@ -3,6 +3,8 @@ import { CartContext } from '../Context/CartContext';
 import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
 import { Navigate } from 'react-router-dom';
+import './Checkout.css';
+import thankYou from '../assets/Checkout/thankYou.gif';
 
 export const Checkout = () => {
 	const { cart, totalInCartPrice, cleanCart } = useContext(CartContext);
@@ -33,12 +35,13 @@ export const Checkout = () => {
 
 	return (
 		<>
-			<div className='container my-5 col-md-6'>
+			<div className='footerStyle container col-md-6'>
+				<img className='img-checkout' src={thankYou} alt='checkout' />
 				<h2>Checkout</h2>
 				<hr />
 				<form onSubmit={handleSubmit}>
 					<input
-						className='form-control my-2'
+						className='form-control my-4'
 						type='text'
 						placeholder='Tu nombre'
 						value={values.name}
@@ -46,7 +49,7 @@ export const Checkout = () => {
 						name='name'
 					/>
 					<input
-						className='form-control my-2'
+						className='form-control my-4'
 						type='email'
 						placeholder='Tu email'
 						value={values.email}
@@ -54,7 +57,7 @@ export const Checkout = () => {
 						name='email'
 					/>
 					<input
-						className='form-control my-2'
+						className='form-control my-4'
 						type='phone'
 						placeholder='Tu telefono'
 						value={values.phone}
@@ -63,7 +66,7 @@ export const Checkout = () => {
 					/>
 
 					<button
-						className='mx-2 p-2 m-2'
+						className='mx-2 p-2 m-4'
 						disabled={
 							cart.length === 0 ||
 							values.name === '' ||
