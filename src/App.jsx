@@ -12,6 +12,7 @@ import { Error404 } from './components/Pages/Error404';
 import { CartProvider } from './components/Context/CartContext';
 import { Subastas } from './components/Auction/Subastas';
 import { Checkout } from './components/Checkout/Checkout';
+import { ScrollButtom } from './components/Scroll/ScrollButtom';
 
 function App() {
 	return (
@@ -31,7 +32,7 @@ function App() {
 					<Route path='/checkout' element={<Checkout />} />
 					<Route path='*' element={<Error404 />} />
 				</Routes>
-
+				<ScrollButtom />
 				<Footer />
 			</BrowserRouter>
 		</CartProvider>

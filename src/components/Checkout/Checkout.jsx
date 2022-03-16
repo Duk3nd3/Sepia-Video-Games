@@ -4,7 +4,7 @@ import { createOrder } from '../../Firebase/createOrder';
 import { validateFormCheckout } from './ValidateFormCheckout';
 import { Navigate } from 'react-router-dom';
 import './Checkout.css';
-import thankYou from '../assets/Checkout/thankYou.gif';
+import sonic_coin from '../assets/Checkout/sonic_coin.gif';
 
 export const Checkout = () => {
 	const { cart, totalInCartPrice, cleanCart } = useContext(CartContext);
@@ -35,11 +35,11 @@ export const Checkout = () => {
 
 	return (
 		<>
-			<div className='footerStyle container col-md-6'>
-				<img className='img-checkout' src={thankYou} alt='checkout' />
-				<h2>Checkout</h2>
-				<hr />
-				<form onSubmit={handleSubmit}>
+			<div className='footerStyle'>
+				<img className='img-sonic_coin' src={sonic_coin} alt='checkout' />
+				<h2 className='container'>Checkout</h2>
+				<hr className='container' />
+				<form className='container col-md-6' onSubmit={handleSubmit}>
 					<input
 						className='form-control my-4'
 						type='text'

@@ -6,7 +6,8 @@ import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './Cart.css';
 import { Empty } from './Empty';
-import lakitu from '../assets/Cart/lakitu.gif';
+import kirby_fight from '../assets/Cart/kirby_fight.gif';
+import kirby_sleeping from '../assets/Cart/kirby_sleeping.gif';
 
 export const Cart = () => {
 	const { cart, totalInCartPrice, cleanCart, deleteProduct, onAdd, onRemove } =
@@ -14,7 +15,15 @@ export const Cart = () => {
 
 	return (
 		<div className='footerStyle container'>
-			<img className='img-cart' src={lakitu} alt='carrito' />
+			{!cart.length ? (
+				<img
+					className='img-kirby_sleeping'
+					src={kirby_sleeping}
+					alt='carrito'
+				/>
+			) : (
+				<img className='img-kirby_fight' src={kirby_fight} alt='carrito' />
+			)}
 			<h2>Tu Compra</h2>
 			<hr />
 
