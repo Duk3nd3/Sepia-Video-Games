@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 export const ItemList = ({ productos }) => {
 
-	//EVITAMOS LA MANIPULACION DE LA URL DURANTE EL FILTRADO DE LOS PRODUCTOS
+	//CONTROLAMOS LA MANIPULACION DE LA URL DURANTE EL FILTRADO DE LOS PRODUCTOS
 	if(productos.length === 0) {
 		return <Navigate to='/' />
 	}
