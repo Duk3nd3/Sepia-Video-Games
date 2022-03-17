@@ -24,7 +24,7 @@ function App() {
 					<Route path='/' element={<ItemListContainer />} />
 					<Route
 						path='/productos/:categoryId'
-						element={<ItemListContainer />}
+						element={<ItemListContainer />}  
 					/>
 					<Route path='/detalle/:itemId' element={<ItemDetailContainer />} />
 					<Route path='/productos/subastas' element={<Subastas />} />
@@ -32,8 +32,10 @@ function App() {
 					<Route path='/checkout' element={<Checkout />} />
 					<Route path='*' element={<Error404 />} />
 				</Routes>
+
 				<ScrollButtom />
 				<Footer />
+
 			</BrowserRouter>
 		</CartProvider>
 	);

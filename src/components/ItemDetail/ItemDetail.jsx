@@ -30,6 +30,7 @@ export const ItemDetail = ({
 		};
 		AddtoCart(Item);
 	};
+
 	return (
 		<Card className='cardDetail'>
 			<Card.Img variant='top' src={img} alt={nombre} />
