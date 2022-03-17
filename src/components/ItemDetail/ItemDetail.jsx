@@ -3,7 +3,7 @@ import './ItemDetail.css';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { useContext, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export const ItemDetail = ({
 	id,
@@ -52,6 +52,8 @@ export const ItemDetail = ({
 					{categoria}
 				</Card.Text>
 			</Card.Body>
+
+			{id === null && <Navigate to='/' />}
 
 			{cantidad > 0 ? (
 				<Link to='/cart'>

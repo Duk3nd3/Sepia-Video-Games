@@ -3,13 +3,17 @@ import { Contenedor } from '../Contenedor/Contenedor';
 import { Navigate } from 'react-router-dom';
 
 export const ItemList = ({ productos }) => {
+
+	//EVITAMOS LA MANIPULACION DE LA URL DURANTE EL FILTRADO DE LOS PRODUCTOS
+	if(productos.length === 0) {
+		return <Navigate to='/' />
+	}
+
 	return (
 		<Contenedor>
 			<h2 style={{ marginTop: '50px', marginBottom: '50px' }}>
 				<hr />
 			</h2>
-
-			{productos.length === 0 && <Navigate to='/' />}
 
 			<div className='row'>
 				{productos.map((elements) => (
